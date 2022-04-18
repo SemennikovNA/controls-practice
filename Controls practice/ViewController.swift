@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
     
-    var number: UInt8 = 128 {
+    var numb: UInt8 = 128 {
         didSet {
             updateUi()
         }
@@ -22,35 +22,57 @@ class ViewController: UIViewController {
     
         override func viewDidLoad() {
         super.viewDidLoad()
+        rotateSwitches()
         updateUi()
     }
     
+    func rotateSwitches() {
+        for item in swithes {
+            item.layer.transform = CATransform3DMakeRotation(-.pi / 2, 0, 0, 1)
+        }
+    }
+    
+    
+    /// Update number from the swithes set
+    func updateNumberFromSwitches() {
+        var number = 0
+        for item in swithes {
+            number += item.tag
+        }
+        self.numb = UInt8(number - 1 % 256)
+    }
+    
+    /// Update swithes
+    func updateSwithes() {
+        
+    }
     /// Updates all outlets to  number
     
     func updateUi() {
-        orBut.setTitle("\(number)", for: [])
-        //TODO: set swithes to number
-        slider.value = Float(number)
-        textField.text = "\(number)"
+        orBut.setTitle("\(numb)", for: [])
+        updateSwithes()
+        slider.value = Float(numb)
+        textField.text = "\(numb)"
     }
  
     
     @IBAction func butPress() {
-        number = UInt8((Int(number)+1) % 256)
+        numb = UInt8((Int(numb)+1) % 256)
         print(#line, #function)
     }
 
     @IBAction func switchTogglet(_ sender: UISwitch) {
+        updateNumberFromSwitches()
         print(#line, #function, sender.tag)
     }
     
     @IBAction func sliderMove() {
-        number = UInt8(slider.value)
+        numb = UInt8(slider.value)
         print(#line, #function)
     }
     
     @IBAction func textFieldEdited() {
-        number = UInt8(textField.text ?? "") ?? 128
+        numb = UInt8(textField.text ?? "") ?? 128
         print(#function)
     }
     
