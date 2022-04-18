@@ -37,14 +37,16 @@ class ViewController: UIViewController {
     func updateNumberFromSwitches() {
         var number = 0
         for item in swithes {
-            number += item.tag
+            number += item.isOn ? item.tag : 0
         }
-        self.numb = UInt8(number - 1 % 256)
+        self.numb = UInt8(number % 256)
     }
     
     /// Update swithes
     func updateSwithes() {
-        
+        for item in swithes {
+            item.isOn = Int(numb) & item.tag != 0
+        }
     }
     /// Updates all outlets to  number
     
@@ -57,7 +59,7 @@ class ViewController: UIViewController {
  
     
     @IBAction func butPress() {
-        numb = UInt8((Int(numb)+1) % 256)
+        numb = UInt8((Int(numb) + 1) % 256)
         print(#line, #function)
     }
 

@@ -75,13 +75,6 @@
                                     <action selector="switchTogglet:" destination="BYZ-38-t0r" eventType="valueChanged" id="loc-vx-jxp"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HGT-LZ-wj6">
-                                <rect key="frame" x="333" y="212" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="switchTogglet:" destination="BYZ-38-t0r" eventType="valueChanged" id="86h-Rw-T1d"/>
-                                </connections>
-                            </switch>
                             <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4w-q4-KFc">
                                 <rect key="frame" x="289" y="212" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -105,6 +98,13 @@
                                     <action selector="textFieldEdited" destination="BYZ-38-t0r" eventType="editingChanged" id="CME-Lf-oOx"/>
                                 </connections>
                             </textField>
+                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y7g-1F-uUU">
+                                <rect key="frame" x="334" y="212" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchTogglet:" destination="BYZ-38-t0r" eventType="valueChanged" id="fWJ-Lg-K9C"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -113,8 +113,6 @@
                         <outlet property="orBut" destination="gDJ-2S-5ww" id="v89-Qb-eeQ"/>
                         <outlet property="slider" destination="7J9-3v-zS2" id="sew-PU-RCj"/>
                         <outlet property="textField" destination="FgE-MD-7L8" id="fhf-uk-YD3"/>
-                        <outletCollection property="swithes" destination="HGT-LZ-wj6" collectionClass="NSMutableArray" id="dQV-Zg-Spd"/>
-                        <outletCollection property="swithes" destination="HGT-LZ-wj6" collectionClass="NSMutableArray" id="lLw-Dj-oJs"/>
                         <outletCollection property="swithes" destination="K4w-q4-KFc" collectionClass="NSMutableArray" id="Q4B-7O-Aqh"/>
                         <outletCollection property="swithes" destination="AxD-SK-qKU" collectionClass="NSMutableArray" id="SJA-pD-peC"/>
                         <outletCollection property="swithes" destination="rN3-tg-9lx" collectionClass="NSMutableArray" id="nya-jo-t0x"/>
@@ -122,6 +120,7 @@
                         <outletCollection property="swithes" destination="qb7-OD-A7c" collectionClass="NSMutableArray" id="QRz-bO-vnG"/>
                         <outletCollection property="swithes" destination="3TZ-zk-hWN" collectionClass="NSMutableArray" id="6jd-3z-HUD"/>
                         <outletCollection property="swithes" destination="lI6-tc-J8B" collectionClass="NSMutableArray" id="TAY-zw-De3"/>
+                        <outletCollection property="swithes" destination="Y7g-1F-uUU" collectionClass="NSMutableArray" id="Std-8G-JWy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
