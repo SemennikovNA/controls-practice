@@ -14,8 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
     
-    var numb: UInt8 = 128 {
+    var numb = 128 {
         didSet {
+            numb = (numb + 256) % 256
             updateUi()
         }
     }
@@ -23,7 +24,7 @@ class ViewController: UIViewController {
         override func viewDidLoad() {
         super.viewDidLoad()
         rotateSwitches()
-        updateUi()
+        updateUi() 
     }
     
     func rotateSwitches() {
@@ -39,7 +40,7 @@ class ViewController: UIViewController {
         for item in swithes {
             number += item.isOn ? item.tag : 0
         }
-        self.numb = UInt8(number % 256)
+        self.numb = number
     }
     
     /// Update swithes
@@ -59,7 +60,7 @@ class ViewController: UIViewController {
  
     
     @IBAction func butPress() {
-        numb = UInt8((Int(numb) + 1) % 256)
+        numb += 1
         print(#line, #function)
     }
 
@@ -69,13 +70,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderMove() {
-        numb = UInt8(slider.value)
+        numb = Int(slider.value)
         print(#line, #function)
     }
     
     @IBAction func textFieldEdited() {
-        numb = UInt8(textField.text ?? "") ?? 128
+        numb = Int(textField.text ?? "") ?? 128
         print(#function)
+    }
+    
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: view)
+        if location.x < view.bounds.midX {
+            numb -= 1
+        } else {
+            numb += 1
+        }
     }
     
 }
